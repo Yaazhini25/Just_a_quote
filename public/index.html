@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Just_a_quote</title>
+</head>
+
+<body>
+
+    <h1>Just_a_quote</h1>
+
+    <button onclick="getQuote()">
+        Get Quote
+    </button>
+
+    <h2 id="result"></h2>
+
+    <script>
+
+        async function getQuote() {
+
+            const response =
+                await fetch("/quote");
+
+            const data =
+                await response.json();
+
+            document.getElementById("result")
+                .innerText = data.quote;
+        }
+
+    </script>
+
+</body>
+
+</html>
